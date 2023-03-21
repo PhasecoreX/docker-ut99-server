@@ -26,19 +26,19 @@ for directory in /data/{addons,server}/{Maps,Music,Sounds,System,Textures}; do
     # Determine file extension we want to compress in this directory
     case "${directory}" in
         */Maps)
-            extension='*.unr'
+            extension="unr"
         ;;
         */Music)
-            extension='*.umx'
+            extension="umx"
         ;;
         */Sounds)
-            extension='*.uax'
+            extension="uax"
         ;;
         */System)
-            extension='*.u'
+            extension="u"
         ;;
         */Textures)
-            extension='*.utx'
+            extension="utx"
         ;;
         *)
             echo "Don't know how to handle ${directory}"
@@ -47,7 +47,7 @@ for directory in /data/{addons,server}/{Maps,Music,Sounds,System,Textures}; do
     esac
 
     # Find all files to compress
-    readarray -d '' files < <(find "${directory}" -name "${extension}" -type f -print0)
+    readarray -d '' files < <(find "${directory}" -iname "*.${extension}" -type f -print0)
     for sourcepath in "${files[@]}"; do
 
         # Get source date and filename without directory, make sure we haven't already compressed it
