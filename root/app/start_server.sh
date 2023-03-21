@@ -8,14 +8,11 @@ if [ "$(stat -c "%d" /)" -eq "$(stat -c "%d" /data)" ]; then
     exit 1
 fi
 
-# Switch to the server System directory
-mkdir -p /data/server/System64
-cd /data/server/System64
-
 # Download/update server files
-/app/install.sh
+/app/install.sh /data/server
 
-# Make server executible
+# Switch to the server System directory, make server executible
+cd /data/server/System64
 chmod +x ./ucc-bin
 
 # Make and set up addon directory if it doesn't exist
