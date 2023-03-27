@@ -7,7 +7,6 @@ download_install() {
     md5=$2
     filename=$3
 
-    version_directory="${server_directory}/.versions"
     download_path="${version_directory}/${filename}"
 
     # If the user knows what they're doing, skip all downloads
@@ -44,6 +43,7 @@ download_install() {
     echo "${md5} ${download_path}" | md5sum -c -
 
     echo "Extracting ${filename} archive..."
+    mkdir -p "${server_directory}"
     tar -xf "${download_path}" -C "${server_directory}"
 
     echo "Removing ${filename} archive"
@@ -55,7 +55,7 @@ download_install() {
 }
 
 server_directory="$1"
-mkdir -p "${server_directory}"
+version_directory="${server_directory}/.versions"
 
 force_update=0
 base_pack_installed=0

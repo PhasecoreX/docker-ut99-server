@@ -15,7 +15,7 @@ fi
 cd /data/server/System64
 chmod +x ./ucc-bin
 
-# Make and set up addon directory if it doesn't exist
+# Make and set up addons directory if it doesn't exist
 mkdir -p /data/addons/System
 ln -sf /data/addons /config/.utpg
 
@@ -32,7 +32,7 @@ fi
 
 # Finally, run the server
 echo "Starting server..."
-server_command="${MAP_NAME:-"DM-Agony"}?game=${GAME_TYPE:-"BotPack.DeathMatchPlus"}"
+server_command="${MAP_NAME:-"DM-Agony"}?game=${GAME_TYPE:-"Botpack.DeathMatchPlus"}"
 if [ -n "${MUTATORS:-}" ]; then
     server_command="${server_command}?mutator=${MUTATORS}"
 fi
