@@ -43,8 +43,11 @@ Here are the ports you can expose on the Docker image:
 - 7779:7779/udp  (Query Port; game port + 2)
 - 7780:7780/udp  (GameSpy Query Port; game port + 3)
 - 7781:7781/udp  (GameSpy Query Port; game port + 4)
+- 8777:8777/udp  (LAN Query Port; game port + 1000)
 
 The right number is the port (and protocol) defined in your `UnrealTournament.ini` file, and the left is what it is exposed as outside of Docker. You will want to have the `/udp` part included on those ports, otherwise no clients will be able to connect to your server! At minimum you will need the game port defined, and if you want other clients to query information from your server, you'd want the query ports defined.
+
+For UT99, there is only the `Port=7777` configuration option in the `UnrealTournament.ini` file. If you change it, you will have to recalculate the other ports to open based on it and what is listed above.
 
 ## Other Environment Variables
 - `MAP_NAME` (default is "DM-Agony") - This is the initial map that will be loaded.

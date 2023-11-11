@@ -26,6 +26,7 @@ COPY root/ /
 # 7779  UDP/IP  (Query Port; game port + 2)
 # 7780  UDP/IP  (GameSpy Query Port; game port + 3)
 # 7781  UDP/IP  (GameSpy Query Port; game port + 4)
-EXPOSE 7777/udp 7778/udp 7779/udp 7780/udp 7781/udp
+# 8777  UDP/IP  (LAN Query Port; game port + 1000)
+EXPOSE 7777/udp 7778/udp 7779/udp 7780/udp 7781/udp 8777/udp
 
 CMD ["/app/start_server.sh"]
