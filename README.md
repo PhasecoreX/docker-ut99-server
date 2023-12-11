@@ -10,10 +10,12 @@ UT99 Server, packaged nicely in a container
 This image contains no server data. Instead, it downloads all the data it needs:
  - UT99 Server 436
  - All four official bonus packs
- - Latest OldUnreal Patch (469c at the time of writing)
+ - Latest OldUnreal Patch (469d at the time of writing)
  - File casing fixes for Linux (Botpack, De, and MultiMesh)
 
 It downloads them on first launch, keeping the image size down and allowing for it to be updated without redownloading all of the unchanging UT99 server files. If there is an update to the contents of the server, there is an updater system in place. Additionally, this updater will not overwrite any .ini files, as they are stored elsewhere.
+
+This image supports standard 64 bit AMD/Intel machines, as well as 64 bit ARM based devices (Raspberry Pi 3 and later, for example).
 
 Looking for a UT2004 Server? [Check out my container for that!](https://github.com/PhasecoreX/docker-ut2004-server)
 

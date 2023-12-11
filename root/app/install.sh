@@ -66,8 +66,17 @@ download_install \
     7c24dfbc4e6fc68a272f3817590d3857 \
     ut99server_436_base
 
-# Install OldUnreal UTPatch 469c
-download_install \
-    "https://github.com/OldUnreal/UnrealTournamentPatches/releases/download/v469c/OldUnreal-UTPatch469c-Linux-amd64.tar.bz2" \
-    6cd032e70460b1393d9514ffe81dcb1a \
-    oldunreal_utpatch
+# Install OldUnreal UTPatch 469d
+if [ "$(uname -m)" = "aarch64" ]; then
+    # arm64
+    download_install \
+        "https://github.com/OldUnreal/UnrealTournamentPatches/releases/download/v469d/OldUnreal-UTPatch469d-Linux-arm64.tar.bz2" \
+        cb2ca9b47e74d9255ec659b2f3a5d213 \
+        oldunreal_utpatch
+else
+    # amd64
+    download_install \
+        "https://github.com/OldUnreal/UnrealTournamentPatches/releases/download/v469d/OldUnreal-UTPatch469d-Linux-amd64.tar.bz2" \
+        d0e133165bf1630288583e52a40b90db \
+        oldunreal_utpatch
+fi

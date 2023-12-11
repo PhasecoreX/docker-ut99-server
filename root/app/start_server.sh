@@ -12,7 +12,13 @@ fi
 /app/install.sh /data/server
 
 # Switch to the server System directory, make server executible
-cd /data/server/System64
+if [ "$(uname -m)" = "aarch64" ]; then
+    rm -rf /data/server/System64
+    cd /data/server/SystemARM64
+else
+    rm -rf /data/server/SystemARM64
+    cd /data/server/System64
+fi
 chmod +x ./ucc-bin
 
 # Make and set up addons directory if it doesn't exist
