@@ -31,13 +31,7 @@ download_install() {
 
     echo "Downloading ${filename} archive..."
     mkdir -p "${version_directory}"
-    if [ -z "${url##*'google.com'*}" ]; then
-        curl -#SL -c "${version_directory}/cookies.txt" "${url}" | sed -rn 's/.*confirm=([0-9A-Za-z_]+).*/\1/p' >"${version_directory}/confirm.txt"
-        curl -#SL -b "${version_directory}/cookies.txt" -o "${download_path}" "${url}&confirm=$(cat "${version_directory}/confirm.txt")"
-        rm -f "${version_directory}/confirm.txt" "${version_directory}/cookies.txt"
-    else
-        curl -#SL "${url}" -o "${download_path}"
-    fi
+    curl -#SL -o "${download_path}" "${url}"
 
     echo "Verifying md5 checksum ${md5}"
     echo "${md5} ${download_path}" | md5sum -c -
@@ -62,7 +56,7 @@ base_pack_installed=0
 
 # Install base server 436
 download_install \
-    "https://drive.google.com/uc?export=download&id=1cIXhXQ-VFKSFQLOw1DkYAB1xPJaDqjaW" \
+    "https://drive.usercontent.google.com/download?id=1cIXhXQ-VFKSFQLOw1DkYAB1xPJaDqjaW&export=download&confirm=t" \
     7c24dfbc4e6fc68a272f3817590d3857 \
     ut99server_436_base
 
