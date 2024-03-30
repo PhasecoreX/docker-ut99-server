@@ -54,10 +54,15 @@ version_directory="${server_directory}/.versions"
 force_update=0
 base_pack_installed=0
 
+# Update to new md5 (same files but compressed with zstd)
+if [ -f "${version_directory}/ut99server_436_base.txt" ] && [ "$(cat "${version_directory}/ut99server_436_base.txt")" = "7c24dfbc4e6fc68a272f3817590d3857" ]; then
+    echo "c4da91899a56b699fe356563aa8be22b" >"${version_directory}/ut99server_436_base.txt"
+fi
+
 # Install base server 436
 download_install \
-    "https://drive.usercontent.google.com/download?id=1cIXhXQ-VFKSFQLOw1DkYAB1xPJaDqjaW&export=download&confirm=t" \
-    7c24dfbc4e6fc68a272f3817590d3857 \
+    "https://drive.usercontent.google.com/download?id=1yvOUOqZJ4N9ql6NmvW18IC9h6rzTPwaP&export=download&confirm=t" \
+    c4da91899a56b699fe356563aa8be22b \
     ut99server_436_base
 
 # Install OldUnreal UTPatch 469d

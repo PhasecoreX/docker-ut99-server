@@ -13,7 +13,7 @@ RUN set -eux; \
         bzip2 \
         ca-certificates \
         curl \
-        xz-utils \
+        zstd \
     ; \
     rm -rf /var/lib/apt/lists/*
 
